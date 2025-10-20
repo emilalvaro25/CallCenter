@@ -110,6 +110,7 @@ export function useLiveApi({
           role: 'system',
           text: triggerMessage,
           isFinal: true,
+          toolUseRequest: { functionCalls: [fc] },
         });
 
         // Prepare the response

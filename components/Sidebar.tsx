@@ -13,6 +13,7 @@ import { useLiveAPIContext } from '@/contexts/LiveAPIContext';
 import { useState } from 'react';
 import ToolEditorModal from './ToolEditorModal';
 import CharacterSelectorModal from './CharacterSelectorModal';
+import FunctionCallAnalytics from './FunctionCallAnalytics';
 
 const AVAILABLE_MODELS = [DEFAULT_LIVE_API_MODEL];
 
@@ -134,6 +135,10 @@ export default function Sidebar() {
             >
               <span className="icon">add</span> Add function call
             </button>
+          </div>
+          <div className="sidebar-section">
+            <h4 className="sidebar-section-title">Session Analytics</h4>
+            <FunctionCallAnalytics />
           </div>
         </div>
       </aside>

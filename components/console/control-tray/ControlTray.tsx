@@ -12,7 +12,7 @@
  *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
+ * distributed under the License is distributed on an "ASIS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
@@ -25,6 +25,7 @@ import { AudioRecorder } from '../../../lib/audio-recorder';
 import { useSettings, useTools, useLogStore } from '@/lib/state';
 
 import { useLiveAPIContext } from '../../../contexts/LiveAPIContext';
+import VolumeMeter from './VolumeMeter';
 
 export type ControlTrayProps = {
   children?: ReactNode;
@@ -35,7 +36,7 @@ function ControlTray({ children }: ControlTrayProps) {
   const [muted, setMuted] = useState(false);
   const connectButtonRef = useRef<HTMLButtonElement>(null);
 
-  const { client, connected, connect, disconnect } = useLiveAPIContext();
+  const { client, connected, connect, disconnect, volume } = useLiveAPIContext();
 
   useEffect(() => {
     // FIX: Cannot find name 'connectButton'. Did you mean 'connectButtonRef'?
@@ -132,6 +133,7 @@ function ControlTray({ children }: ControlTrayProps) {
             <span className="material-symbols-outlined filled">mic_off</span>
           )}
         </button>
+        <VolumeMeter volume={connected && !muted ? volume : 0} />
         <button
           className={cn('action-button')}
           onClick={handleExportLogs}
