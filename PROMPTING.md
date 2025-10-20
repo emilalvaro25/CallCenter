@@ -94,6 +94,37 @@ Experimental tags for creative applications:
   production use.
 </Warning>
 
+## Emotional range examples
+
+Here are a few examples of how to use audio tags to convey different common emotions.
+
+### Happy
+
+Use tags like `[excited]`, `[laughing]`, and `[warmly]` to convey joy and positivity.
+
+```text Example
+[excited] I can't believe we're finally going!
+[laughing] That's the funniest thing I've heard all day!
+```
+
+### Sad
+
+Tags like `[sighs]`, `[crying]`, and `[somber]` can add a sense of sorrow or melancholy.
+
+```text Example
+[sighs] I don't think I can do this anymore. It's just... too hard.
+[crying] I miss them so much...
+```
+
+### Surprised
+
+Convey shock or disbelief with tags like `[gasps]`, `[incredulous]`, and `[shocked]`.
+
+```text Example
+[gasps] You didn't!
+[incredulous] Are you actually serious right now?
+```
+
 ## Punctuation
 
 Punctuation significantly affects delivery in v3:

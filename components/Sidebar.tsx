@@ -14,18 +14,20 @@ import { useState } from 'react';
 import ToolEditorModal from './ToolEditorModal';
 import CharacterSelectorModal from './CharacterSelectorModal';
 import FunctionCallAnalytics from './FunctionCallAnalytics';
+import VoiceCloneModal from './VoiceCloneModal';
 
 const AVAILABLE_MODELS = [DEFAULT_LIVE_API_MODEL];
 
 export default function Sidebar() {
   const { isSidebarOpen, toggleSidebar } = useUI();
-  const { systemPrompt, model, voice, setSystemPrompt, setModel } =
+  const { systemPrompt, model, voice, setSystemPrompt, setModel, characters } =
     useSettings();
   const { tools, toggleTool, addTool, removeTool, updateTool } = useTools();
   const { connected } = useLiveAPIContext();
 
   const [editingTool, setEditingTool] = useState<FunctionCall | null>(null);
   const [isCharacterModalOpen, setCharacterModalOpen] = useState(false);
+  const [isVoiceCloneModalOpen, setVoiceCloneModalOpen] = useState(false);
 
   const handleSaveTool = (updatedTool: FunctionCall) => {
     if (editingTool) {
@@ -34,7 +36,7 @@ export default function Sidebar() {
     setEditingTool(null);
   };
 
-  const currentCharacter = CHARACTERS.find(c => c.id === voice);
+  const currentCharacter = characters.find(c => c.id === voice);
 
   return (
     <>
@@ -87,6 +89,16 @@ export default function Sidebar() {
                 </div>
               </label>
             </fieldset>
+          </div>
+          <div className="sidebar-section">
+            <h4 className="sidebar-section-title">Custom Voice</h4>
+            <button
+              onClick={() => setVoiceCloneModalOpen(true)}
+              className="add-tool-button"
+              disabled={connected}
+            >
+              <span className="icon">person_add</span> Create Voice Clone
+            </button>
           </div>
           <div className="sidebar-section">
             <h4 className="sidebar-section-title">Tools</h4>
@@ -151,6 +163,9 @@ export default function Sidebar() {
       )}
       {isCharacterModalOpen && (
         <CharacterSelectorModal onClose={() => setCharacterModalOpen(false)} />
+      )}
+      {isVoiceCloneModalOpen && (
+        <VoiceCloneModal onClose={() => setVoiceCloneModalOpen(false)} />
       )}
     </>
   );

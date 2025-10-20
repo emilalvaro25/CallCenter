@@ -1,0 +1,162 @@
+.voice-clone-modal {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.voice-clone-modal .modal-description {
+    margin-top: -12px;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.voice-clone-modal .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.voice-clone-modal label {
+    font-size: 14px;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.voice-clone-modal input[type="text"] {
+    border: 1px solid var(--border-primary);
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 14px;
+    background: var(--background-primary);
+    color: var(--text-primary);
+    transition: all 0.2s;
+}
+
+.voice-clone-modal input[type="text"]:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 3px var(--accent-primary-bg);
+}
+
+.file-upload-area {
+    position: relative;
+    border: 2px dashed var(--border-primary);
+    border-radius: 8px;
+    padding: 32px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.file-upload-area:hover {
+    border-color: var(--accent-primary);
+    background-color: var(--background-tertiary);
+}
+
+.file-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.file-upload-content .icon {
+    font-size: 48px;
+    color: var(--accent-primary);
+}
+
+.file-upload-content p {
+    margin: 8px 0 0;
+    color: var(--text-primary);
+}
+
+.file-upload-content .file-types {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.file-list {
+    margin-top: 16px;
+}
+
+.file-list h4 {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.file-list ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.file-list li {
+    font-size: 13px;
+    color: var(--text-primary);
+    background-color: var(--background-tertiary);
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--border-primary);
+}
+
+.error-message {
+    color: var(--accent-red);
+    font-size: 13px;
+    text-align: right;
+    margin-top: -8px;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.modal-actions button {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: opacity 0.2s;
+}
+
+.modal-actions .create-button {
+    background-color: var(--accent-primary);
+    color: var(--background-primary);
+}
+
+.modal-actions .create-button:hover:not(:disabled) {
+    background-color: var(--accent-primary-hover);
+}
+
+.modal-actions .cancel-button {
+    background-color: var(--background-tertiary);
+    border: 1px solid var(--border-primary);
+}
+
+.modal-actions .cancel-button:hover:not(:disabled) {
+    background-color: #2a3038;
+}
+
+.spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    animation: spin 0.75s linear infinite;
+    margin-right: 8px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

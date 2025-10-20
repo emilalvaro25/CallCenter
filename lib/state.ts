@@ -20,7 +20,12 @@ const systemPrompts: Record<Template, string> = {
   'personal-assistant': 'You are a helpful and friendly personal assistant. Be proactive and efficient.',
   'navigation-system': 'You are a helpful and friendly navigation assistant. Provide clear and accurate directions.',
 };
-import { DEFAULT_LIVE_API_MODEL, DEFAULT_VOICE } from './constants';
+import {
+  DEFAULT_LIVE_API_MODEL,
+  DEFAULT_VOICE,
+  CHARACTERS,
+  Character,
+} from './constants';
 import {
   FunctionResponse,
   FunctionResponseScheduling,
@@ -34,16 +39,23 @@ export const useSettings = create<{
   systemPrompt: string;
   model: string;
   voice: string;
+  characters: Character[];
   setSystemPrompt: (prompt: string) => void;
   setModel: (model: string) => void;
   setVoice: (voice: string) => void;
+  addCharacter: (character: Character) => void;
 }>(set => ({
   systemPrompt: `You are a helpful and friendly AI assistant. Be conversational and concise.`,
   model: DEFAULT_LIVE_API_MODEL,
   voice: DEFAULT_VOICE,
+  characters: CHARACTERS,
   setSystemPrompt: prompt => set({ systemPrompt: prompt }),
   setModel: model => set({ model }),
   setVoice: voice => set({ voice }),
+  addCharacter: character =>
+    set(state => ({
+      characters: [...state.characters, character],
+    })),
 }));
 
 /**

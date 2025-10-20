@@ -5,7 +5,7 @@
 import React, { useState, useCallback, memo, useEffect } from 'react';
 import { GoogleGenAI, Modality } from '@google/genai';
 import Modal from './Modal';
-import { CHARACTERS, Character } from '@/lib/constants';
+import { Character } from '@/lib/constants';
 import { useSettings } from '@/lib/state';
 import './CharacterSelectorModal.css';
 
@@ -86,7 +86,7 @@ const CharacterCard = memo(
 );
 
 const CharacterSelectorModal = ({ onClose }: { onClose: () => void }) => {
-  const { voice, setVoice } = useSettings();
+  const { voice, setVoice, characters } = useSettings();
   const [playingVoiceId, setPlayingVoiceId] = useState<string | null>(null);
   const [loadingVoiceId, setLoadingVoiceId] = useState<string | null>(null);
   const [audioContext, setAudioContext] = useState<AudioContext | null>(null);
@@ -213,7 +213,7 @@ const CharacterSelectorModal = ({ onClose }: { onClose: () => void }) => {
           button to hear a preview.
         </p>
         <div className="character-grid">
-          {CHARACTERS.map(char => (
+          {characters.map(char => (
             <CharacterCard
               key={char.id}
               character={char}
