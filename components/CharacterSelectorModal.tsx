@@ -97,7 +97,6 @@ const CharacterSelectorModal = ({ onClose }: { onClose: () => void }) => {
     // Initialize AudioContext on user interaction
     if (!audioContext) {
       const initAudio = () => {
-        // FIX: The 'webkitAudioContext' is a vendor-prefixed version for older browsers and is not standard.
         // Using the standard 'AudioContext' ensures better compatibility and adherence to web standards.
         const ctx = new window.AudioContext({
           sampleRate: 24000,
@@ -110,7 +109,7 @@ const CharacterSelectorModal = ({ onClose }: { onClose: () => void }) => {
   }, [audioContext]);
 
   const getAiClient = () => {
-    const apiKey = process.env.GEMINI_API_KEY as string;
+    const apiKey = process.env.API_KEY as string;
     if (!apiKey) {
       console.error('API key not found');
       return null;

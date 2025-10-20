@@ -1,6 +1,6 @@
 {
   "name": "Audio Studio",
-  "description": "An interactive sandbox for Gemini's native audio and function calling.",
+  "description": "An interactive sandbox for Eburon's native audio and function calling.",
   "requestFramePermissions": [
     "microphone"
   ]

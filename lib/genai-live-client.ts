@@ -120,7 +120,7 @@ export class GenAILiveClient {
         callbacks,
       });
     } catch (e: any) {
-      console.error('Error connecting to GenAI Live:', e);
+      console.error('Error connecting to Eburon:', e);
       this._status = 'disconnected';
       this.session = undefined;
       const errorEvent = new ErrorEvent('error', {
@@ -280,7 +280,7 @@ export class GenAILiveClient {
     this._status = 'disconnected';
     console.error('error:', e);
 
-    const message = `Could not connect to GenAI Live: ${e.message}`;
+    const message = `Could not connect to Eburon: ${e.message}`;
     this.log(`server.${e.type}`, message);
     this.emitter.emit('error', e);
   }

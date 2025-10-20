@@ -4,74 +4,89 @@
   align-items: center;
   height: 100%;
   text-align: center;
-  color: var(--gray-500);
+  color: var(--text-secondary);
+  padding: 24px;
 }
 
 .welcome-content {
-  max-width: 600px;
-}
-
-.welcome-icon {
-  font-size: 60px;
-  color: var(--gray-700);
-  margin-bottom: 20px;
-  font-family: 'Material Symbols Outlined';
-}
-
-.title-container {
+  max-width: 700px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 10px;
+  gap: 16px;
 }
 
-.title-selector {
-  position: relative;
-  display: inline-block;
+.welcome-icon-container {
+    background: var(--accent-primary-bg);
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    border: 1px solid var(--accent-primary);
 }
 
-.title-selector select {
-  font-size: 28px;
-  font-weight: bold;
-  color: var(--gray-300);
-  background-color: transparent;
-  border: none;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  padding-right: 30px;
-  /* Space for the icon */
-  cursor: pointer;
-  text-transform: capitalize;
+.welcome-icon {
+  font-size: 48px;
+  color: var(--accent-primary);
 }
 
-.title-selector .icon {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
-  font-size: 30px;
-  color: var(--gray-300);
-  pointer-events: none;
-  /* Allows clicks to pass through to the select */
+
+.welcome-content h1 {
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--text-primary);
 }
 
 .welcome-content p {
   font-size: 18px;
-  margin-bottom: 30px;
+  line-height: 1.6;
+  max-width: 500px;
+  margin-bottom: 24px;
 }
 
 .example-prompts {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  width: 100%;
 }
 
 .prompt {
-  background-color: var(--Neutral-15);
-  padding: 10px 15px;
-  border-radius: 8px;
-  font-family: 'Roboto Mono', monospace;
+  background-color: var(--background-secondary);
+  padding: 20px;
+  border-radius: var(--card-border-radius);
+  font-family: var(--font-family-sans);
   font-size: 14px;
-  color: var(--gray-200);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-primary);
+  transition: all 0.2s;
+  text-align: left;
+}
+
+.prompt:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-primary);
+}
+
+.prompt p {
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+    color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+  .example-prompts {
+    grid-template-columns: 1fr;
+  }
+  .welcome-content h1 {
+    font-size: 28px;
+  }
+  .welcome-content p {
+    font-size: 16px;
+  }
 }

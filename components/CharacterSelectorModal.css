@@ -2,26 +2,26 @@
 
 .character-selector-modal h2 {
     margin-bottom: 8px;
-    color: var(--accent-blue-headers);
+    color: var(--text-primary);
 }
 
 .character-selector-modal .modal-description {
     margin-bottom: 24px;
-    color: var(--gray-300);
+    color: var(--text-secondary);
     font-size: 14px;
     max-width: 90%;
 }
 
 .character-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
     gap: 16px;
     width: 100%;
 }
 
 .character-card {
-    background-color: var(--Neutral-10);
-    border: 1px solid var(--border-stroke);
+    background-color: var(--background-tertiary);
+    border: 1px solid var(--border-primary);
     border-radius: var(--card-border-radius);
     padding: 16px;
     display: flex;
@@ -35,29 +35,30 @@
 .character-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    border-color: var(--accent-blue);
+    border-color: var(--accent-primary);
 }
 
 .character-card.selected {
-    border-color: var(--accent-blue-active);
-    box-shadow: 0 0 0 2px var(--accent-blue-active);
-    background-color: var(--accent-blue-active-bg);
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 2px var(--accent-primary);
+    background-color: var(--accent-primary-bg);
 }
 
 .character-avatar {
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background-color: var(--Neutral-20);
+    background-color: var(--background-secondary);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
+    border: 1px solid var(--border-primary);
 }
 
 .character-avatar .icon {
     font-size: 28px;
-    color: var(--accent-blue);
+    color: var(--accent-primary);
 }
 
 .character-info {
@@ -72,11 +73,12 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    color: var(--text-primary);
 }
 
 .character-info p {
     font-size: 13px;
-    color: var(--gray-300);
+    color: var(--text-secondary);
     line-height: 1.4;
     margin: 0;
     max-width: 100%;
@@ -85,7 +87,7 @@
 .preview-button {
     background: transparent;
     border: none;
-    color: var(--gray-300);
+    color: var(--text-secondary);
     padding: 8px;
     border-radius: 50%;
     display: flex;
@@ -96,8 +98,8 @@
 }
 
 .preview-button:hover:not(:disabled) {
-    background-color: var(--Neutral-20);
-    color: var(--text);
+    background-color: var(--background-secondary);
+    color: var(--text-primary);
 }
 
 .preview-button .icon {
@@ -111,12 +113,14 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+    /* Make modal more screen-friendly on tablets */
     .modalShroud .modal {
         max-width: 95vw;
         width: 100%;
+        margin: 16px;
     }
     .character-grid {
-        max-height: 65vh;
+        max-height: 70vh;
         overflow-y: auto;
         padding-right: 8px;
     }
@@ -128,8 +132,22 @@
     }
     .modalShroud .modal {
         padding: 16px;
+        margin: 10px; /* Further reduce margin for small screens */
+        max-height: 90vh; /* Allow more vertical space */
     }
     .character-selector-modal h2 {
-        font-size: 18px;
+        font-size: 20px; /* Slightly larger for readability */
+    }
+    /* Reduce card padding on mobile for more content space */
+    .character-card {
+        padding: 12px;
+        gap: 12px;
+    }
+    .character-avatar {
+        width: 40px;
+        height: 40px;
+    }
+    .character-avatar .icon {
+        font-size: 24px;
     }
 }

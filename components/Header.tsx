@@ -10,9 +10,16 @@ export default function Header() {
   return (
     <header>
       <div className="header-left">
-        <h1>Native Audio Function Call Sandbox</h1>
-        <p>Copy the app and ask the Code Assistant to add function calls.</p>
-        <p>Build your own function call experiment.</p>
+        <div className="logo">
+          <span className="icon" style={{ fontSize: '28px', color: 'var(--accent-primary)' }}>
+            graphic_eq
+          </span>
+          <h1>TTS Studio</h1>
+        </div>
+        <p>
+          Craft lifelike voice experiences with Eburon's next-generation audio
+          models.
+        </p>
       </div>
       <div className="header-right">
         <button
